@@ -28,6 +28,7 @@ A professional **Connection Request** mobile app built for a capstone project. U
 - [ ] Loading + success/error feedback (snackbars/toasts)
 
 > If using JWT instead of Firebase:
+> Currently using this
 - [ ] Store JWT token securely (`flutter_secure_storage`)
 - [ ] Auto-refresh / re-login handling
 - [ ] Attach JWT to every API request
