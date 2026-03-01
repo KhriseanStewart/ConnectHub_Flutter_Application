@@ -2,134 +2,129 @@
 
 A professional **Connection Request** mobile app built for a capstone project. Users can create profiles, browse/filter other users, send connection requests, accept/decline requests, and manage connections. (Optional) After connecting, users can store simple message history (not real-time).
 
-## ✅ Capstone Requirements Covered
+---
 
-### Authentication & User Management
-- Register / Login / Logout
-- Secure session persistence
-- Protected routes (authenticated vs unauthenticated users)
+# 📊 Project Progress Tracker (Flutter)
 
-### Personalization
-- Profile (bio, interests, location)
-- Personalized dashboard (“Welcome back, {name}”)
-- User-specific records only (requests/connections belong to the user)
-
-### CRUD (Full)
-- Create / View / Edit / Delete profile
-- Send request
-- Accept/decline request
-- Remove connection
-- (Optional) Create/View messages per connection (stored, not sockets)
-
-### UI/UX Standards
-- Consistent theme & spacing
-- Loading states / empty states
-- Confirmation before delete
-- Error handling + feedback
+## 🏗 Setup & Foundation
+- [ ] Create Flutter project
+- [ ] Setup folder structure (core/models/services/providers/pages/widgets)
+- [ ] Add dependencies (state mgmt, routing, http client, secure storage)
+- [ ] Setup app theme (colors, typography, spacing)
+- [ ] Setup routing + protected navigation
+- [ ] Create reusable widgets (buttons, textfields, loaders, empty states)
 
 ---
 
-# 🧱 Tech Stack
-- Flutter
-- State Management: Provider / Riverpod / BLoC (choose one)
-- REST API: NodeJS/Express backend
-- Auth: Firebase Auth **OR** JWT
-- Database: MySQL (backend)
+## 🔐 Authentication & Session Handling
+- [ ] Setup Firebase project (Auth enabled)
+- [ ] Add Firebase to Flutter (android/ios configs)
+- [ ] Implement Register screen
+- [ ] Implement Login screen
+- [ ] Implement Logout
+- [ ] Persist session (auto-login on app launch)
+- [ ] Auth guard (redirect unauthenticated users to login)
+- [ ] Input validation + error messages (email, password rules)
+- [ ] Loading + success/error feedback (snackbars/toasts)
 
-> Recommended for capstone clarity:
-> - Firebase Auth for login (easy + secure)
-> - Backend uses Firebase UID as user_id mapping OR JWT if you prefer
-
----
-
-# 📱 Features
-- Auth flow (Register/Login/Logout)
-- Profile setup + edit
-- Browse users
-- Search/filter by:
-  - Location
-  - Interests
-- Connection requests:
-  - Send request
-  - Accept/decline
-- Connections list
-- (Optional) Messages (stored history, not real-time)
+> If using JWT instead of Firebase:
+- [ ] Store JWT token securely (`flutter_secure_storage`)
+- [ ] Auto-refresh / re-login handling
+- [ ] Attach JWT to every API request
 
 ---
 
-# ✅ Folder Structure (Recommended)
-
-lib/
-├── core/
-│   ├── constants/
-│   ├── themes/
-│   └── utils/
-│
-├── models/
-│   ├── profile.dart
-│   ├── connection_request.dart
-│   ├── connection.dart
-│   └── message.dart (optional)
-│
-├── services/
-│   ├── api_service.dart
-│   ├── auth_service.dart
-│   └── storage_service.dart (optional)
-│
-├── providers/ (or bloc/)
-│   ├── auth_provider.dart
-│   ├── profile_provider.dart
-│   ├── browse_provider.dart
-│   ├── requests_provider.dart
-│   └── connections_provider.dart
-│
-├── pages/
-│   ├── auth/
-│   │   ├── login_page.dart
-│   │   └── register_page.dart
-│   ├── dashboard/
-│   │   └── dashboard_page.dart
-│   ├── profile/
-│   │   ├── edit_profile_page.dart
-│   │   └── profile_page.dart
-│   ├── browse/
-│   │   ├── browse_page.dart
-│   │   └── user_details_page.dart
-│   ├── requests/
-│   │   └── requests_page.dart
-│   ├── connections/
-│   │   ├── connections_page.dart
-│   │   └── chat_page.dart (optional)
-│   └── settings/
-│       └── settings_page.dart (optional)
-│
-├── widgets/
-│   ├── app_button.dart
-│   ├── app_textfield.dart
-│   ├── empty_state.dart
-│   └── loading_overlay.dart
-│
-└── main.dart
+## 👤 Profile (CRUD)
+- [ ] Create Profile screen (Create profile)
+- [ ] Edit Profile screen (Update)
+- [ ] View My Profile (Read)
+- [ ] Delete Profile (Delete) + confirm dialog
+- [ ] Form validation (name required, location format, etc.)
+- [ ] UI polish (loading states + empty states)
 
 ---
 
-# 🔐 Authentication Flow (Interview-Ready)
-1. App launch → check auth state
-2. If logged in → Dashboard
-3. If not logged in → Login
-4. On register → create user → create profile record (backend) → go Dashboard
+## 🔍 Browse & Filtering
+- [ ] Browse users list (exclude self)
+- [ ] User details page
+- [ ] Filter by location
+- [ ] Filter by interest(s)
+- [ ] Search by name (optional bonus)
+- [ ] Pagination or lazy loading (bonus)
+- [ ] Show empty state for “no results”
+
+---
+
+## 📩 Connection Requests
+- [ ] Send connection request from user details
+- [ ] Prevent duplicate requests (handle API errors cleanly)
+- [ ] Incoming requests screen
+- [ ] Outgoing requests screen
+- [ ] Accept request action
+- [ ] Decline request action
+- [ ] Cancel outgoing request (optional)
+- [ ] Loading + confirm UI feedback
+
+---
+
+## 🤝 Connections
+- [ ] Connections list screen
+- [ ] Connection profile preview (optional)
+- [ ] Remove connection (Delete) + confirm dialog
+- [ ] Ensure only user’s connections show
+
+---
+
+## 💬 Messages (Optional — Stored History Only)
+- [ ] Chat/messages screen (per connection)
+- [ ] Load message history
+- [ ] Send message (stored in DB)
+- [ ] Sort by timestamp
+- [ ] Empty state “No messages yet”
+
+---
+
+## 🛡 UX Quality (High Marks)
+- [ ] Consistent spacing/typography across all pages
+- [ ] Loading indicator for every request
+- [ ] Empty states for every list screen
+- [ ] Confirmation before destructive actions
+- [ ] Global error handling (network, server errors)
+- [ ] Prevent multiple taps on submit buttons
+- [ ] Pull-to-refresh for key lists (optional bonus)
+- [ ] Dark/Light theme toggle (bonus)
+
+---
+
+## 🧪 Testing & Final Polish
+- [ ] Test auth flow end-to-end
+- [ ] Test profile CRUD end-to-end
+- [ ] Test browse filters
+- [ ] Test request → accept → connection flow
+- [ ] Test data isolation (no other user’s private data)
+- [ ] Handle offline / timeout gracefully
+- [ ] Remove debug logs + unused code
+- [ ] Add README screenshots section placeholders
+
+---
+
+# ✅ Capstone Deliverables Tracker
+- [ ] APK / runnable project exported
+- [ ] GitHub repo clean + updated README
+- [ ] Technical documentation ready (architecture, endpoints, schema)
+- [ ] User manual written (with screenshots)
+- [ ] App screenshots exported (all key screens)
+- [ ] 5-minute demo video recorded
+- [ ] Viva prep: can explain architecture, auth, CRUD, DB design
 
 ---
 
 # 🌐 API Base URL Setup
 
-Create a `.env`-style config or constants file.
+Create a constants file.
 
-Example:
-- `lib/core/constants/api_constants.dart`
-
+**`lib/core/constants/api_constants.dart`**
 ```dart
 class ApiConstants {
   static const String baseUrl = "http://localhost:4000/api";
 }
-
